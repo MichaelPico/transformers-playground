@@ -1,5 +1,8 @@
 import { pipeline, env, type TokenClassificationSingle } from '@xenova/transformers';
 
+const STANDARD_MODEL = 'jdp8/wikineural-multilingual-ner';
+const LONG_TEXT_MODEL = 'Xenova/bert-base-multilingual-cased-ner-hrl';
+
 interface ProcessedChunk {
   type: string;
   text: string;
@@ -9,8 +12,8 @@ export async function processText(text: string): Promise<ProcessedChunk[]> {
   console.log('Starting text processing...');
   env.allowLocalModels = false;
   
-  console.log('Loading NER pipeline...');
-  const classifier = await pipeline('token-classification', 'Xenova/bert-base-multilingual-cased-ner-hrl');
+  console.log('Loading NER pipeline with model:', STANDARD_MODEL);
+  const classifier = await pipeline('token-classification', STANDARD_MODEL);
   console.log('NER pipeline loaded successfully');
   
   console.log('Running NER inference on text...');
@@ -96,8 +99,8 @@ export async function processTextEfficient(text: string): Promise<ProcessedChunk
 }
 
 async function processLongText(text: string): Promise<ProcessedChunk[]> {
-  console.log('Loading NER pipeline for long text processing...');
-  const classifier = await pipeline('token-classification', 'Xenova/bert-base-multilingual-cased-ner-hrl');
+  console.log('Loading NER pipeline for long text processing with model:', LONG_TEXT_MODEL);
+  const classifier = await pipeline('token-classification', LONG_TEXT_MODEL);
   
   console.log('Splitting text into chunks...');
   const chunks = splitTextIntoChunks(text, 400);

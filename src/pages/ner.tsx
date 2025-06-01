@@ -23,6 +23,7 @@ const getTypeLabel = (type: string): string => {
     case 'PER': return 'Person';
     case 'ORG': return 'Organization';
     case 'LOC': return 'Location';
+    case 'MISC': return 'Other';
     default: return type;
   }
 };
@@ -70,9 +71,6 @@ export default function NerPage() {
   return (
     <Container maxWidth="lg">
       <Box sx={{ my: 4 }}>
-        <Typography variant="h3" component="h1" gutterBottom>
-          Michael Pico | Transformers Playground
-        </Typography>
         
         <Paper sx={{ p: 3, mb: 3 }}>
           <TextField
@@ -105,7 +103,7 @@ export default function NerPage() {
             variant="outlined" 
             sx={{ 
               p: 2,
-              maxHeight: '400px',
+              maxHeight: '600px',
               overflow: 'auto'
             }}
           >
