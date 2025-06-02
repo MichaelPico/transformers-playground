@@ -14,8 +14,13 @@ const NAVIGATION: Navigation = [
     icon: <DashboardIcon />,
   },
   {
-    segment: 'ner',
+    segment: 'name-entity-recognition',
     title: 'Name Entity Recognition',
+    icon: <SafetyDividerIcon />,
+  },
+  {
+    segment: 'sentence-similarity',
+    title: 'Sentence Similarity',
     icon: <SafetyDividerIcon />,
   },
 ];

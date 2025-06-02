@@ -4,7 +4,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router';
 import App from './App';
 import Layout from './layouts/dashboard';
 import DashboardPage from './pages';
-import NerPage from './pages/ner';
+import NerPage from './pages/nameEntityRecognition';
+import SentenceSimilarityPage from './pages/sentenceSimilarity';
 
 const router = createBrowserRouter([
   {
@@ -19,8 +20,12 @@ const router = createBrowserRouter([
             Component: DashboardPage,
           },
           {
-            path: 'ner',
+            path: 'name-entity-recognition',
             Component: NerPage,
+          },
+          {
+            path: 'sentence-similarity',
+            Component: SentenceSimilarityPage,
           },
         ],
       },
