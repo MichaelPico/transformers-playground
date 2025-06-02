@@ -20,7 +20,7 @@ export async function compareSentences(sourceSentence: string, targetSentences: 
     env.allowLocalModels = false;
     
     // Initialize the embedding pipeline with the more efficient model
-    const extractor =  await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2');
+    const extractor =  await pipeline('feature-extraction', 'mixedbread-ai/mxbai-embed-large-v1');
     console.log('Starting sentence comparison process...');
 
     // Generate embeddings for all sentences at once
