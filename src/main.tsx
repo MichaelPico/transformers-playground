@@ -6,6 +6,7 @@ import Layout from './layouts/dashboard';
 import DashboardPage from './pages';
 import NerPage from './pages/nameEntityRecognition';
 import SentenceSimilarityPage from './pages/sentenceSimilarity';
+import ZeroShotClassificationPage from './pages/zeroShotClassification';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
           {
             path: 'sentence-similarity',
             Component: SentenceSimilarityPage,
+          },
+          {
+            path: 'zero-shoot-classification',
+            Component: ZeroShotClassificationPage,
           },
         ],
       },

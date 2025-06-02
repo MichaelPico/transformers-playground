@@ -24,6 +24,11 @@ const NAVIGATION: Navigation = [
     title: 'Sentence Similarity',
     icon: <SafetyDividerIcon />,
   },
+  {
+    segment: 'zero-shoot-classification',
+    title: 'Text Classification',
+    icon: <SafetyDividerIcon />,
+  },
 ];
 
 const BRANDING = {
