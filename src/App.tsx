@@ -1,5 +1,7 @@
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import SafetyDividerIcon from '@mui/icons-material/SafetyDivider';
+import PsychologyIcon from '@mui/icons-material/Psychology';
+import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
+import CategoryIcon from '@mui/icons-material/Category';
 import { Outlet } from 'react-router';
 import { ReactRouterAppProvider } from '@toolpad/core/react-router';
 import type { Navigation } from '@toolpad/core/AppProvider';
@@ -17,17 +19,17 @@ const NAVIGATION: Navigation = [
   {
     segment: 'name-entity-recognition',
     title: 'Name Entity Recognition',
-    icon: <SafetyDividerIcon />,
+    icon: <PsychologyIcon />,
   },
   {
     segment: 'sentence-similarity',
     title: 'Sentence Similarity',
-    icon: <SafetyDividerIcon />,
+    icon: <CompareArrowsIcon />,
   },
   {
     segment: 'zero-shoot-classification',
     title: 'Text Classification',
-    icon: <SafetyDividerIcon />,
+    icon: <CategoryIcon />,
   },
 ];
 
