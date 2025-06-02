@@ -20,8 +20,8 @@ interface ClassificationResult {
 }
 
 export default function ZeroShotClassificationPage() {
-  const [text, setText] = useState<string>("Title:\nUnable to access premium features after payment\nDescription:\nI upgraded my account to the premium plan yesterday and the payment was successful, but I still can't access the premium features like advanced analytics and custom reports. I've tried logging out and back in, but nothing changed. Please help!");
-  const [labels, setLabels] = useState<string>("Billing\nAccount Issue\nFeature Access\nPremium Plan");
+  const [text, setText] = useState<string>("Unable to access premium features after payment!");
+  const [labels, setLabels] = useState<string>("Billing\nFeature Access\nAccount Issue\nPremium Plan\nService Outage\nIntegration Support\nAPI Errors\nLogin Problems\nData Export\nSubscription Upgrade\nUser Permissions\nUI/UX Feedback");
   const [results, setResults] = useState<ClassificationResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
