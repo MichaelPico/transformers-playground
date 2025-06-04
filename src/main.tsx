@@ -7,6 +7,7 @@ import DashboardPage from './pages';
 import NerPage from './pages/nameEntityRecognition';
 import SentenceSimilarityPage from './pages/sentenceSimilarity';
 import ZeroShotClassificationPage from './pages/zeroShotClassification';
+import SummarizationPage from './pages/summarization';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
           {
             path: 'zero-shoot-classification',
             Component: ZeroShotClassificationPage,
+          },
+          {
+            path: 'summarization',
+            Component: SummarizationPage,
           },
         ],
       },
