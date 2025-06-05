@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { processTextEfficient } from '../utils/nerProcessor';
 import { 
   Box, 
@@ -12,6 +12,7 @@ import {
   Divider,
   CircularProgress
 } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 interface Token {
   type: string;
@@ -29,10 +30,23 @@ const getTypeLabel = (type: string): string => {
 };
 
 export default function NerPage() {
+  const { t, i18n } = useTranslation();
   const [extractedTokens, setExtractedTokens] = useState<Token[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [inputText, setInputText] = useState<string>(`I'm Michael Pico, a passionate 24-year-old developer with a strong background in Software Development acquired at IES Domenico Scarlatti in Spain. Currently, I work as a Software Developer at Elastacloud, a London-based company, where I contribute to the Knowledge Miner team using technologies like .Net, React and Azure to contribute to the success of innovative projects.
-  `);
+  const [inputText, setInputText] = useState<string>(t('ner.defaultInputText'));
+
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setExtractedTokens([]);
+      setInputText(t('ner.defaultInputText'));
+    };
+
+    i18n.on('languageChanged', handleLanguageChange);
+
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n, t]);
 
   const processNER = async (text: string) => {
     setIsLoading(true);
@@ -79,7 +93,7 @@ export default function NerPage() {
             rows={6}
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
-            label="Input Text"
+            label={t('ner.inputTextLabel')}
             variant="outlined"
             sx={{ mb: 2 }}
           />
@@ -90,13 +104,13 @@ export default function NerPage() {
               onClick={handleExtract}
               disabled={isLoading}
             >
-              Extract Tokens
+              {t('ner.extractTokensButton')}
             </Button>
             {isLoading && <CircularProgress size={24} />}
           </Box>
 
           <Typography variant="h5" component="h2" gutterBottom>
-            Extracted Tokens:
+            {t('ner.extractedTokensTitle')}
           </Typography>
           
           <Paper 
@@ -110,7 +124,7 @@ export default function NerPage() {
             {Object.entries(groupedTokens).map(([type, tokens]) => (
               <Box key={type} sx={{ mb: 2 }}>
                 <Typography variant="h6" color="text.secondary" gutterBottom>
-                  {getTypeLabel(type)}
+                  {t(`ner.tokenType.${type}`)}
                 </Typography>
                 <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
                   {tokens.map((token, index) => (
