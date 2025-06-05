@@ -5,12 +5,7 @@ import LanguageSwitcher from '../components/LanguageSwitcher';
 
 export default function Layout() {
   const slots: DashboardLayoutSlots = {
-    toolbarActions: () => (
-      <>
-        <LanguageSwitcher />
-        {/* Default toolbar actions will be rendered here */}
-      </>
-    )
+    toolbarActions: LanguageSwitcher
   };
 
   return (
