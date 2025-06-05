@@ -41,7 +41,7 @@ const NAVIGATION: Navigation = [
 
 const BRANDING = {
   title: ' Transformers Playground',
-  logo: <img src="/transformers-playground/src/assets/MP.svg" alt="Michael Pico Logo" width="32" height="32" />,
+  logo: <img src="/transformers-playground/assets/MP.svg" alt="Michael Pico Logo" width="32" height="32" />,
 };
 
 export default function App() {
