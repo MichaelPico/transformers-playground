@@ -6,7 +6,8 @@ import { ThemeSwitcher } from '@toolpad/core/DashboardLayout';
 
 const languages = [
   { code: 'en', name: 'English' },
-  { code: 'es', name: 'Español' }
+  { code: 'es', name: 'Español' },
+  { code: 'fr', name: 'Français' }
 ];
 
 const LanguageSwitcher: FC = () => {
