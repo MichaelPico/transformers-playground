@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { compareSentences } from '../utils/sentenceSimilarityProcessor';
 import { 
   Box, 
@@ -13,6 +13,7 @@ import {
   Divider,
   CircularProgress
 } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 interface SimilarityResult {
   sentence: string;
@@ -20,10 +21,26 @@ interface SimilarityResult {
 }
 
 export default function SentenceSimilarityPage() {
-  const [sourceSentence, setSourceSentence] = useState<string>("Unable to deploy my application to the staging environment");
-  const [targetSentences, setTargetSentences] = useState<string>("Deployment to staging environment fails with timeout error\nApp deployment stuck at initializing stage\nCannot push latest build to staging\nBuild completes but app not available in staging\nIssue deploying app to platform\nError 504 when accessing staging deployment\nDeploying to production works, but staging fails\nPermissions error when deploying app\nDeployment rollback triggered unexpectedly\nCI/CD pipeline fails during deploy step\nNew version not showing up after deployment\nStaging environment not syncing with latest code\nResource quota exceeded during deployment\nUnexpected error when deploying via CLI\nCannot deploy app due to missing environment variables\nStaging app crashes right after deployment\nApp not reachable after deploying to staging\nReceiving “deployment failed” error in dashboard\nWeb interface shows deployment as successful but app not working\nDeploy script exits with non-zero status");
+  const { t, i18n } = useTranslation();
+
+  const [sourceSentence, setSourceSentence] = useState<string>(t('similarity.defaultSourceSentence'));
+  const [targetSentences, setTargetSentences] = useState<string>(t('similarity.defaultTargetSentences'));
   const [results, setResults] = useState<SimilarityResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setSourceSentence(t('similarity.defaultSourceSentence'));
+      setTargetSentences(t('similarity.defaultTargetSentences'));
+      setResults([]);
+    };
+
+    i18n.on('languageChanged', handleLanguageChange);
+
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n, t]);
 
   const handleCompare = async () => {
     setIsLoading(true);
@@ -43,12 +60,12 @@ export default function SentenceSimilarityPage() {
       <Box sx={{ my: 4 }}>
         <Paper sx={{ p: 3, mb: 3 }}>
           <Typography variant="h5" gutterBottom>
-            Sentence Similarity Comparison
+            {t('similarity.pageTitle')}
           </Typography>
           
           <TextField
             fullWidth
-            label="Source Sentence"
+            label={t('similarity.sourceSentenceLabel')}
             value={sourceSentence}
             onChange={(e) => setSourceSentence(e.target.value)}
             margin="normal"
@@ -59,7 +76,7 @@ export default function SentenceSimilarityPage() {
             fullWidth
             multiline
             rows={20}
-            label="Target Sentences (one per line)"
+            label={t('similarity.targetSentencesLabel')}
             value={targetSentences}
             onChange={(e) => setTargetSentences(e.target.value)}
             margin="normal"
@@ -72,21 +89,21 @@ export default function SentenceSimilarityPage() {
             disabled={isLoading}
             sx={{ mt: 2 }}
           >
-            {isLoading ? <CircularProgress size={24} /> : 'Compare Sentences'}
+            {isLoading ? <CircularProgress size={24} /> : t('similarity.compareButton')}
           </Button>
         </Paper>
 
         {results.length > 0 && (
           <Paper sx={{ p: 3 }}>
             <Typography variant="h6" gutterBottom>
-              Similarity Results
+              {t('similarity.resultsTitle')}
             </Typography>
             <List>
               {results.map((result, index) => (
                 <Box key={index}>
                   <ListItem>
                     <ListItemText
-                      primary={`Score: ${result.score.toFixed(4)}`}
+                      primary={`${t('similarity.resultScore')}: ${result.score.toFixed(4)}`}
                       secondary={result.sentence}
                     />
                   </ListItem>

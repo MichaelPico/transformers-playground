@@ -23,4 +23,14 @@ export default {
   'ner.tokenType.LOC': 'Location',
   'ner.tokenType.MISC': 'Other',
   'ner.defaultInputText': `I'm Michael Pico, a passionate 24-year-old developer with a strong background in Software Development acquired at IES Domenico Scarlatti in Spain. Currently, I work as a Software Developer at Elastacloud, a London-based company, where I contribute to the Knowledge Miner team using technologies like .Net, React and Azure to contribute to the success of innovative projects.`,
+
+  // Similarity Page
+  'similarity.pageTitle': 'Sentence Similarity Comparison',
+  'similarity.sourceSentenceLabel': 'Source Sentence',
+  'similarity.targetSentencesLabel': 'Target Sentences (one per line)',
+  'similarity.compareButton': 'Compare Sentences',
+  'similarity.resultsTitle': 'Similarity Results',
+  'similarity.resultScore': 'Score',
+  'similarity.defaultSourceSentence': 'Unable to deploy my application to the staging environment',
+  'similarity.defaultTargetSentences': 'Deployment to staging environment fails with timeout error\nApp deployment stuck at initializing stage\nCannot push latest build to staging\nBuild completes but app not available in staging\nIssue deploying app to platform\nError 504 when accessing staging deployment\nDeploying to production works, but staging fails\nPermissions error when deploying app\nDeployment rollback triggered unexpectedly\nCI/CD pipeline fails during deploy step\nNew version not showing up after deployment\nStaging environment not syncing with latest code\nResource quota exceeded during deployment\nUnexpected error when deploying via CLI\nCannot deploy app due to missing environment variables\nStaging app crashes right after deployment\nApp not reachable after deploying to staging\nReceiving “deployment failed” error in dashboard\nWeb interface shows deployment as successful but app not working\nDeploy script exits with non-zero status',
 };
