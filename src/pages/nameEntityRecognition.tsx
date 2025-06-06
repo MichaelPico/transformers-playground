@@ -19,16 +19,6 @@ interface Token {
   text: string;
 }
 
-const getTypeLabel = (type: string): string => {
-  switch(type) {
-    case 'PER': return 'Person';
-    case 'ORG': return 'Organization';
-    case 'LOC': return 'Location';
-    case 'MISC': return 'Other';
-    default: return type;
-  }
-};
-
 export default function NerPage() {
   const { t, i18n } = useTranslation();
   const [extractedTokens, setExtractedTokens] = useState<Token[]>([]);
@@ -85,8 +75,12 @@ export default function NerPage() {
   return (
     <Container maxWidth="lg">
       <Box sx={{ my: 4 }}>
-        
         <Paper sx={{ p: 3, mb: 3 }}>
+          <Typography variant="body1" gutterBottom>
+            {t('ner.pageDescription')}
+            <br />
+            <br />
+          </Typography>
           <TextField
             fullWidth
             multiline
