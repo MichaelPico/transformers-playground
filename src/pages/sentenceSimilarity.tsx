@@ -59,9 +59,6 @@ export default function SentenceSimilarityPage() {
     <Container maxWidth="lg">
       <Box sx={{ my: 4 }}>
         <Paper sx={{ p: 3, mb: 3 }}>
-          <Typography variant="h5" gutterBottom>
-            {t('similarity.pageTitle')}
-          </Typography>
           <Typography variant="body1" gutterBottom>
             {t('similarity.pageDescription')}
             <br/>
