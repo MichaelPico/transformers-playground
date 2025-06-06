@@ -62,6 +62,11 @@ export default function SentenceSimilarityPage() {
           <Typography variant="h5" gutterBottom>
             {t('similarity.pageTitle')}
           </Typography>
+          <Typography variant="body1" gutterBottom>
+            {t('similarity.pageDescription')}
+            <br/>
+            <br/>
+        </Typography>
           
           <TextField
             fullWidth

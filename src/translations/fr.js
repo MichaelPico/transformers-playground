@@ -15,6 +15,7 @@ export default {
   'app.title': 'Transformers Playground',
 
   // NER Page
+  'ner.pageDescription': 'NER est un processus en traitement du langage naturel qui identifie et classe les entités nommées dans un texte en catégories prédéfinies telles que les noms de personnes, les organisations, les lieux, et plus encore.',
   'ner.inputTextLabel': 'Texte d\'entrée',
   'ner.extractTokensButton': 'Extraire les tokens',
   'ner.extractedTokensTitle': 'Tokens extraits',
@@ -25,7 +26,7 @@ export default {
   'ner.defaultInputText': `Je suis Michael Pico, un développeur passionné de 24 ans avec une solide expérience en développement logiciel acquise à l'IES Domenico Scarlatti en Espagne. Actuellement, je travaille comme développeur logiciel chez Elastacloud, une entreprise basée à Londres, où je contribue à l'équipe Knowledge Miner en utilisant des technologies telles que .Net, React et Azure pour contribuer au succès de projets innovants.`,
 
   // Similarity Page
-  'similarity.pageTitle': 'Comparaison de similarité de phrases',
+  'similarity.pageDescription': 'La Similarité de Phrases est une tâche de traitement du langage naturel qui mesure à quel point deux phrases sont similaires en termes de signification. Elle est largement utilisée dans des applications comme les moteurs de recherche, les systèmes de recommandation et les systèmes de questions-réponses.',
   'similarity.sourceSentenceLabel': 'Phrase source',
   'similarity.targetSentencesLabel': 'Phrases cibles (une par ligne)',
   'similarity.compareButton': 'Comparer les phrases',
